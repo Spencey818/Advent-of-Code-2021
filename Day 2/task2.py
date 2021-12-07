@@ -7,6 +7,7 @@ instructions = {
 
 count = 0
 distance = 0
+aim = 0
 depth = 0
 
 with open('input.txt', 'r') as infile:
@@ -18,10 +19,11 @@ with open('input.txt', 'r') as infile:
 for command in instructions['commands']:
     if command == 'forward':
         distance += instructions['units'][count]
+        depth += (aim * instructions['units'][count])
     elif command == 'down':
-        depth += instructions['units'][count]
+        aim += instructions['units'][count]
     elif command == 'up':
-        depth -= instructions['units'][count]
+        aim -= instructions['units'][count]
     count += 1
 
 
